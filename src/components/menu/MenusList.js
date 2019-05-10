@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
-import { MenuType, menuType } from "../../utilities/prop-types";
+import { menuType } from "../../utilities/prop-types";
 import { Link } from "react-router-dom";
 
 const createMenuRow = menu => (
@@ -35,7 +35,7 @@ const MenusList = props => {
             </thead>
 
             <tbody>{menus.map(createMenuRow)}</tbody>
-          </Table>
+          </Table>menuType
         </Col>
       </Row>
     </Container>

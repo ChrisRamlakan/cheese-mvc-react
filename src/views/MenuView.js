@@ -29,7 +29,7 @@ class MenuView extends Component {
   addToCheeses = cheese =>
     this.setState(state => {
       const { menu } = state;
-      const cheeses = [cheese, ...cheeses];
+      const cheeses = [cheese, ...menu.cheeses];
       // update state by merging the menu data with a new merged cheeses property
       return { menu: { ...menu, cheeses } };
     });
@@ -40,7 +40,7 @@ class MenuView extends Component {
 
       // TODO: provide the filter() callback
       // should return true for any cheese whos ID DOES NOT match the cheeseID
-      const cheeses = cheeses.filter(cheese => cheese.id !== cheeseID);
+      const cheeses = menu.cheeses.filter(cheese => cheese.id !== cheeseID);
 
       return { menu: { ...menu, cheeses } };
     });
@@ -49,10 +49,13 @@ class MenuView extends Component {
     const { menu } = this.state;
     // TODO: make an API request to remove the cheese from the menu
     // check the API reference for the correct endpoint
-
-    const res = await request.delete(`/menus/${menu}/cheeses/${cheeseID}`);
+    console.log(menu);
+    console.log(cheeseID);
+    const res = await request.delete(`/menus/${menu.id}/cheeses/${cheeseID}`);
+    console.log(`/menus/${menu.id}/cheeses/${cheeseID}`);
 
     // if the request failed exit early
+    //Why is this returning 201 - Created in Postman?
     if (res.status !== 201) {
       return;
     }

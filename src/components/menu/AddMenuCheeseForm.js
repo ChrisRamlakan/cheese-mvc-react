@@ -53,23 +53,25 @@ class AddMenuCheeseForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { menuID, addCheese } = this.props;
-    const { cheeseID } = this.state;
+    const { menuID, addToCheeses } = this.props;
+    const { cheeseID, allCheeses } = this.state;
 
     // TODO: make an API request using the correct endpoint and data
     // check the API reference to see how to add a cheese to a menu
     const res = await request.post(`/menus/${menuID}/cheeses`, { cheeseID });
-    const cheese = res.data;
-
+    
+    // finds the cheese using its ID
+    // Number(cheeseID) is to ensure the form's string cheeseID is comparable to the number cheese.id
+    const cheese = allCheeses.find(cheese => cheese.id === Number(cheeseID));
     // TODO: give the cheese to the MenuView Parent component
-    addCheese(cheese);
+    addToCheeses(cheese);
     // TODO: reset the form
     this.resetForm();
   };
 
   render() {
     const { currentCheeses } = this.props;
-    const { cheeseID, allCheeses } = this.state;
+    const { disabled, cheeseID, allCheeses } = this.state;
 
     const availableCheeses = filterAvailableCheeses(currentCheeses, allCheeses); // TODO: derive the available cheeses with the utility function
 
@@ -99,7 +101,7 @@ class AddMenuCheeseForm extends Component {
           <Button
             type="submit"
             variant="primary"
-            disabled={cheeseID === ""}
+            disabled={disabled}
             onClick={this.handleSubmit}
           >
             Add Cheese
@@ -112,6 +114,9 @@ class AddMenuCheeseForm extends Component {
 
 AddMenuCheeseForm.propTypes = {
   // TODO: complete the prop types
+  currentCheeses: PropTypes.arrayOf(cheeseType).isRequired,
+  addToCheeses: PropTypes.func.isRequired,
+  menuID: PropTypes.string.isRequired,
 };
 
 export default AddMenuCheeseForm;

@@ -72,11 +72,13 @@ class CheesesView extends Component {
     return (
       <Container>
         <Row>
-          <CheeseForm categories={categories} addCheese={this.addToCheeses} />
+          <Col lg={{ span: 8, offset: 2 }}>
+            <CheeseForm categories={categories} addCheese={this.addToCheeses} />
+          </Col>
         </Row>
         <hr />
-        <Row className="text-center">
-          <Col xs={12} md={8} lg={4}>
+        <Row>
+          <Col xs={12} md={8} lg={{ span: 4, offset: 2 }}>
             <h5>Cheeses by Category</h5>
             <CheeseCategorySelector
               categories={categories}
@@ -86,11 +88,13 @@ class CheesesView extends Component {
             />
           </Col>
         </Row>
-        <CheesesList
-          cheeses={cheeses}
-          // only show [remove] button if in 'All' category (selectedCategoryID is an empty string)
-          removeCheese={selectedCategoryID === "" && this.deleteCheese}
-        />
+        <Col xs={12} md={8} lg={{ span: 8, offset: 2 }}>
+          <CheesesList
+            cheeses={cheeses}
+            // only show [remove] button if in 'All' category (selectedCategoryID is an empty string)
+            removeCheese={selectedCategoryID === "" && this.deleteCheese}
+          />
+        </Col>
       </Container>
     );
   }

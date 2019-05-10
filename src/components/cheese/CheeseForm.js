@@ -138,9 +138,8 @@ class CheeseForm extends Component {
 
 CheeseForm.propTypes = {
   // TODO: implement the prop types
-  addToCheeses: PropTypes.func.isRequired,
+  addCheese: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(categoryType).isRequired,
-  hideForm: PropTypes.func.isRequired,
 };
 
 export default CheeseForm;

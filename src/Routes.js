@@ -6,10 +6,11 @@ import CategoriesView from "./views/CategoriesView";
 import CheesesView from "./views/CheesesView";
 import MenuView from "./views/MenuView";
 import MenusView from "./views/MenusView";
+import HomeView from "./views/HomeView";
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={CategoriesView} />
+    <Route exact path="/" component={HomeView} />
     <Route path="/cheeses" component={CheesesView} />
     <Route path="/categories" component={CategoriesView} />
     <Route path="/menus/:menuID" component={MenuView} />
