@@ -77,8 +77,9 @@ class CheesesView extends Component {
           </Col>
         </Row>
         <hr />
-        <Row>
-          <Col xs={12} md={8} lg={{ span: 4, offset: 2 }}>
+        <Row className="text-center">
+          {/* This isn't centered properly without matching the above span/offset */}
+          <Col xs={12} md={8} lg={{ span: 8, offset: 2 }}>
             <h5>Cheeses by Category</h5>
             <CheeseCategorySelector
               categories={categories}
