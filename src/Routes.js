@@ -4,13 +4,16 @@ import { Switch, Route } from "react-router-dom";
 
 import CategoriesView from "./views/CategoriesView";
 import CheesesView from "./views/CheesesView";
+import MenuView from "./views/MenuView";
+import MenusView from "./views/MenusView";
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={CategoriesView} />
     <Route path="/cheeses" component={CheesesView} />
     <Route path="/categories" component={CategoriesView} />
-    <Route path="/menus" component={CategoriesView} />
+    <Route path="/menus/:menuID" component={MenuView} />
+    <Route path="/menus" component={MenusView} />
   </Switch>
 );
 

@@ -12,11 +12,18 @@ const cheeseEntity = {
   category: categoryEntity.isRequired,
 };
 
+const menuEntity = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+};
+
 // a Prop Types definition using the base entity shape
 // exported as a named export to match how we imported it in CategoriesList.js
 export const categoryType = PropTypes.shape(categoryEntity);
 
 export const cheeseType = PropTypes.shape(cheeseEntity);
+
+export const menuType = PropTypes.shape(menuEntity);
 
 // could also be written in one step as
 // export const categoryType = PropTypes.shape({
