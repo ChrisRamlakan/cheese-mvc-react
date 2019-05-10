@@ -19,7 +19,6 @@ class MenuForm extends Component {
 
     // Category length between 3 and 15 chars
     const disabled = value.length < 3 || value.length > 15;
-    console.log(value, disabled);
     // Update State
     this.setState({ disabled, name: value });
   };

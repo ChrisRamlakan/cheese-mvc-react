@@ -35,7 +35,7 @@ const MenusList = props => {
             </thead>
 
             <tbody>{menus.map(createMenuRow)}</tbody>
-          </Table>menuType
+          </Table>
         </Col>
       </Row>
     </Container>

@@ -49,10 +49,7 @@ class MenuView extends Component {
     const { menu } = this.state;
     // TODO: make an API request to remove the cheese from the menu
     // check the API reference for the correct endpoint
-    console.log(menu);
-    console.log(cheeseID);
     const res = await request.delete(`/menus/${menu.id}/cheeses/${cheeseID}`);
-    console.log(`/menus/${menu.id}/cheeses/${cheeseID}`);
 
     // if the request failed exit early
     //Why is this returning 201 - Created in Postman?
